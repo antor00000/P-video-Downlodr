@@ -1,2 +1,7 @@
-buildCommand: "pip install -r requirements.txt && curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp && chmod a+rx /usr/local/bin/yt-dlp"
+buildCommand: |
+  apt-get update && apt-get install -y curl
+  curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+  chmod a+rx /usr/local/bin/yt-dlp
+  pip install -r requirements.txt
+
 startCommand: "python app.py"
